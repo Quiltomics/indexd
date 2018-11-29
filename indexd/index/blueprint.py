@@ -294,7 +294,7 @@ def post_index_blank_record():
 @authorize
 def put_index_blank_record(record):
     '''
-    Update a blank record with size, hashes and url
+    Update a blank record with size, hashes, url and file name
     '''
     rev = flask.request.args.get('rev')
     size = flask.request.get_json().get('size')

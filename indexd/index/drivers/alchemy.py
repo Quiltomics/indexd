@@ -658,8 +658,9 @@ class SQLAlchemyIndexDriver(IndexDriverABC):
 
     def update_blank_record(self, did, rev, size, hashes, urls, file_name):
         """
-        Update a blank record with size and hashes, raise exception
-        if the record is non-empty or the revision is not matched
+        Update a blank record with size, hashes and optionally file
+        name, raise exception if the record is non-empty or the revision
+        does not match
         """
         hashes = hashes or {}
         urls = urls or []

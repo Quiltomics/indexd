@@ -201,7 +201,7 @@ def test_create_blank_record(swg_index_client):
 
 def test_fill_name_size_n_hash_for_blank_record(swg_index_client):
     """
-    Test that can fill size and hashes for empty record
+    Test that we can fill file name, size and hashes for empty record
     """
     doc = {'uploader': 'uploader_123'}
 

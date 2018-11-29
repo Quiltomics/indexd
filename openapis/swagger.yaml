@@ -239,7 +239,7 @@ paths:
     put:
       tags:
         - index
-      summary: Update only hashes and size for blank index
+      summary: Update hashes, size and optionally file name for blank index
       description: ''
       operationId: updateBlankEntry
       consumes:
