@@ -656,7 +656,7 @@ class SQLAlchemyIndexDriver(IndexDriverABC):
 
             return record.did, record.rev, record.baseid
 
-    def update_blank_record(self, did, rev, size, hashes, urls):
+    def update_blank_record(self, did, rev, size, hashes, urls, file_name):
         """
         Update a blank record with size and hashes, raise exception
         if the record is non-empty or the revision is not matched
@@ -683,6 +683,7 @@ class SQLAlchemyIndexDriver(IndexDriverABC):
             if rev != record.rev:
                 raise RevisionMismatch('revision mismatch')
 
+            record.file_name = file_name
             record.size = size
             record.hashes = [IndexRecordHash(
                 did=record.did,

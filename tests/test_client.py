@@ -199,7 +199,7 @@ def test_create_blank_record(swg_index_client):
     assert not r.records[0].hashes.sha256
     assert not r.records[0].hashes.sha512
 
-def test_fill_size_n_hash_for_blank_record(swg_index_client):
+def test_fill_name_size_n_hash_for_blank_record(swg_index_client):
     """
     Test that can fill size and hashes for empty record
     """
@@ -211,6 +211,7 @@ def test_fill_size_n_hash_for_blank_record(swg_index_client):
 
     did, rev = r.did, r.rev
     updated = {
+        'file_name': 'myfile.txt',
         'size': 10,
         'hashes': {'md5': '8b9942cf415384b27cadf1f4d2d981f5'},
     }
@@ -220,6 +221,7 @@ def test_fill_size_n_hash_for_blank_record(swg_index_client):
     assert r.rev != rev
 
     r = swg_index_client.get_entry(did)
+    assert r.file_name == 'myfile.txt'
     assert r.size == 10
     assert r.hashes.md5 == '8b9942cf415384b27cadf1f4d2d981f5'
 

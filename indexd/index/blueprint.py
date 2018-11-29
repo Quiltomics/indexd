@@ -300,6 +300,7 @@ def put_index_blank_record(record):
     size = flask.request.get_json().get('size')
     hashes = flask.request.get_json().get('hashes')
     urls = flask.request.get_json().get('urls')
+    file_name = flask.request.get_json().get('file_name')
 
     did, rev, baseid = blueprint.index_driver.update_blank_record(
         did=record,
@@ -307,6 +308,7 @@ def put_index_blank_record(record):
         size=size,
         hashes=hashes,
         urls=urls,
+        file_name=file_name,
     )
     ret = {
         'did': did,
